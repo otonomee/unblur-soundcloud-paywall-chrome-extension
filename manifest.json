@@ -1,0 +1,47 @@
+{
+    "name": "Unblur Soundcloud Pro Insights",
+    "version": "1.0",
+    "icons": {
+        "16": "assets/unblur-soundcloud-16.png",
+        "48": "assets/unblur-soundcloud-48.png",
+        "128": "assets/unblur-soundcloud-128.png"
+    },
+    "description": "Inserts a random number into input elements.",
+    "manifest_version": 3,
+    "permissions": [
+        "storage",
+        "scripting",
+        "background",
+        "tabs",
+        "activeTab",
+        "contextMenus",
+        "commands",
+        "nativeMessaging",
+        "https://insights-ui.soundcloud.com/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "assets/unblur-soundcloud-16.png",
+            "48": "assets/unblur-soundcloud-48.png",
+            "128": "assets/unblur-soundcloud-128.png"
+        },
+        "default_title": "Unblur Soundcloud Pro Insights"
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "js": [
+                "content-script.js"
+            ],
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "all_frames": true
+        }
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    }
+}
